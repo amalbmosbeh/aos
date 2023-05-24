@@ -47,12 +47,4 @@ The Post Service manages operations related to posts. It includes the following:
 5. Start the services: Run `npm start` to start the user and post services.
 6. Access the APIs: Use tools like GraphQL Playground or Postman to interact with the APIs.
 
-## Contributing
 
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to submit a pull request or open an issue in the repository.
-
-## License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
-
-Feel free to modify and adapt the README file to fit your specific project requirements and add any additional sections or information as needed.
