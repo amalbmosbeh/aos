@@ -74,7 +74,7 @@ router.post("/register", async (req, res) => {
     password,
     confirmPassword
   );
-  //if (!valid) {
+
   if (!valid) {
     return res.status(400).json({ errors });
   }

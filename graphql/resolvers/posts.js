@@ -56,7 +56,7 @@ module.exports = {
       try {
         const post = await Post.findById(postId);
         if (user.username === post.username) {
-          await post.delete();
+          await Post.deleteOne({ _id: postId });
           return "Post deleted successfully";
         } else {
           throw new AuthenticationError("Action not allowed");

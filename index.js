@@ -6,6 +6,7 @@ const typeDefs = require("./graphql/typeDefs");
 const resolvers = require("./graphql/resolvers");
 const Post = require("./models/Post");
 const usersRouter = require("./rest/userscc"); // Replace with the actual path to userscc.js
+const postsRouter = require("./rest/postscc"); // Replace with the actual path to userscc.js
 
 const PORT = 5000;
 const app = express();
@@ -27,14 +28,15 @@ async function startServer() {
   console.log("MongoDB connected");
 
   // Define the REST route for posts
-  app.get("/posts", async (req, res) => {
+  /*  app.get("/posts", async (req, res) => {
     try {
       const posts = await Post.find();
       res.json(posts);
     } catch (err) {
       res.send("Error: " + err);
     }
-  });
+  }); */
+  app.use("/", postsRouter);
 
   app.use("/", usersRouter);
 
