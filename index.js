@@ -27,15 +27,8 @@ async function startServer() {
   await mongoose.connect(MONGODB, { useNewUrlParser: true });
   console.log("MongoDB connected");
 
-  // Define the REST route for posts
-  /*  app.get("/posts", async (req, res) => {
-    try {
-      const posts = await Post.find();
-      res.json(posts);
-    } catch (err) {
-      res.send("Error: " + err);
-    }
-  }); */
+  // Define the REST route
+
   app.use("/", postsRouter);
 
   app.use("/", usersRouter);

@@ -65,6 +65,27 @@ module.exports = {
         throw new Error(err);
       }
     },
+    async updatePost(_, { postId, body }, context) {
+      const user = checkAuth(context);
+
+      try {
+        const post = await Post.findById(postId);
+        if (!post) {
+          throw new Error("Post not found");
+        }
+        if (user.username !== post.username) {
+          throw new AuthenticationError("Action not allowed");
+        }
+
+        post.body = body;
+        post.updatedAt = new Date().toISOString();
+
+        const updatedPost = await post.save();
+        return updatedPost;
+      } catch (err) {
+        throw new Error(err);
+      }
+    },
     async likePost(_, { postId }, context) {
       const { username } = checkAuth(context);
 
